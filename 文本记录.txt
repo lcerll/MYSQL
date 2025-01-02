@@ -3125,3 +3125,31 @@ chmod u-w /etc/sudoers
 innodb_max_dirty_pages_pct = 0 #设置为 0，表示禁用脏页的使用，即在页面变为脏页之前，InnoDB 会将缓冲池中的数据刷新到磁盘。
 innodb_fast_shutdown = 0 #表示 InnoDB 会进行更加彻底的关机，确保所有脏页都写入磁盘，所有内部数据结构都被清理。
 
+#jenkins递增序号
+-- Manage jenkins --> Script Console
+def jobName = "微信展业/gwcslifeApp"
+def job = Jenkins.instance.getItemByFullName(jobName)
+
+if (job) {
+    println("Job found: ${job.name}")
+    job.nextBuildNumber = 4
+    println("Next build number set to: ${job.nextBuildNumber}")
+} else {
+    println("Job not found with the name: ${jobName}")
+}
+
+#omnidb systemctl
+/etc/systemd/system/omnidb.service
+[Unit]
+Description=OmniDB server daemon
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/bin/bash -c "/opt/omnidb-server/omnidb-server -H 0.0.0.0 -p 8090 &"
+RemainAfterExit=yes
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
