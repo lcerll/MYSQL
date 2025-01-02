@@ -1,7 +1,9 @@
 ### Hi there 👋
 
+- learning to notepad. thanks bro  
+
 <!--
-**lixinl0ng/lixinl0ng** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**lcerll/lcerll** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:
 
